@@ -19,7 +19,7 @@ warnings.warn = warn
 def arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--seed', type=int, default=7, help='Random seed.')
-    parser.add_argument('--dataset', type=str, default='Peking_1', help="['KKI', 'OHSU', 'Peking_1', 'EEG', 'MUTAG', 'PROTEINS', 'AIDS', 'NCI1', 'IMDB-BINARY', 'REDDIT-BINARY')")
+    parser.add_argument('--dataset', type=str, default='OHSU', help="['KKI', 'OHSU', 'MUTAG', 'Mutangenicity', 'PROTEINS', 'AIDS', 'NCI1', 'IMDB-BINARY', 'REDDIT-BINARY')")
     parser.add_argument('--ds_rate', type=float, default=0.1, help='Dataset downsampling rate for Graph classification datasets.')
     parser.add_argument('--ds_cl', type=int, default=0, help='The default downsampled class.')
 
