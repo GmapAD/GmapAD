@@ -90,10 +90,10 @@ if __name__ == "__main__":
     print(f"loading dataset {args.dataset}")
     print(f"Testing Round: {args.round}")
 
-    graph_path = f"../data/{args.dataset}/{args.gnn_layer}/graph{args.round}.pt"
-    train_path = f"../data/{args.dataset}/{args.gnn_layer}/train_graph{args.round}.pt"
-    val_path = f"../data/{args.dataset}/{args.gnn_layer}/val_graph{args.round}.pt"
-    test_path = f"../data/{args.dataset}/{args.gnn_layer}/test_graph{args.round}.pt"
+    graph_path = f"./data/{args.dataset}/{args.gnn_layer}/graph{args.round}.pt"
+    train_path = f"./data/{args.dataset}/{args.gnn_layer}/train_graph{args.round}.pt"
+    val_path = f"./data/{args.dataset}/{args.gnn_layer}/val_graph{args.round}.pt"
+    test_path = f"./data/{args.dataset}/{args.gnn_layer}/test_graph{args.round}.pt"
     
     if not os.path.exists(graph_path) or not os.path.exists(train_path) or not os.path.exists(val_path) or not os.path.exists(test_path):
         graphs = load_dataset(args.dataset, args)
@@ -114,15 +114,15 @@ if __name__ == "__main__":
         test_graphs = downsample(args.ds_rate, args.ds_cl, test_graphs)
         
         # Save downsampled datasets
-        torch.save(train_graphs, f"../data/{args.dataset}/{args.gnn_layer}/train_graph{args.round}.pt")
-        torch.save(val_graphs, f"../data/{args.dataset}/{args.gnn_layer}/val_graph{args.round}.pt")
-        torch.save(test_graphs, f"../data/{args.dataset}/{args.gnn_layer}/test_graph{args.round}.pt")
+        torch.save(train_graphs, f"./data/{args.dataset}/{args.gnn_layer}/train_graph{args.round}.pt")
+        torch.save(val_graphs, f"./data/{args.dataset}/{args.gnn_layer}/val_graph{args.round}.pt")
+        torch.save(test_graphs, f"./data/{args.dataset}/{args.gnn_layer}/test_graph{args.round}.pt")
     else:
         print("load from pre-splitted data.")
-        graphs = torch.load(f"../data/{args.dataset}/{args.gnn_layer}/graph{args.round}.pt")
-        train_graphs = torch.load(f"../data/{args.dataset}/{args.gnn_layer}/train_graph{args.round}.pt")
-        val_graphs = torch.load(f"../data/{args.dataset}/{args.gnn_layer}/val_graph{args.round}.pt")
-        test_graphs = torch.load(f"../data/{args.dataset}/{args.gnn_layer}/test_graph{args.round}.pt")
+        graphs = torch.load(f"./data/{args.dataset}/{args.gnn_layer}/graph{args.round}.pt")
+        train_graphs = torch.load(f"./data/{args.dataset}/{args.gnn_layer}/train_graph{args.round}.pt")
+        val_graphs = torch.load(f"./data/{args.dataset}/{args.gnn_layer}/val_graph{args.round}.pt")
+        test_graphs = torch.load(f"./data/{args.dataset}/{args.gnn_layer}/test_graph{args.round}.pt")
 
     print_dataset_stat(args, graphs)
 
